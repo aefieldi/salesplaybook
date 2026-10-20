@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Sales Call Playbook · Spiritual Business Skool</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a12;--bg2:#12101d;--surf:#15121f;--surf2:#1c1829;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --txt:#f1eefb;--soft:#c9c3dd;--muted:#8b85a3;--lav:#b79cf5;--lav2:#9b7cf0;--vio:#7c5cf0;
+  --gold:#e8c878;--mint:#7fe0b8;--pink:#f08bb0;--track:rgba(255,255,255,.07);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0a12;--bg2:#12101d;--surf:#15121f;--surf2:#1c1829;--txt:#f1eefb;--soft:#c9c3dd;--muted:#8b85a3}}
+:root[data-theme="dark"]{--bg:#0b0a12;--bg2:#12101d;--surf:#15121f;--surf2:#1c1829;--txt:#f1eefb;--soft:#c9c3dd;--muted:#8b85a3}
+:root[data-theme="light"]{--bg:#f7f5fc;--bg2:#efebf8;--surf:#ffffff;--surf2:#f2eef9;--line:rgba(20,10,50,.08);--line2:rgba(20,10,50,.16);--txt:#1a1530;--soft:#3c3558;--muted:#6f6890;--lav:#7c5cf0;--gold:#a8812c;--mint:#1f9d6b;--pink:#c24a7a;--track:rgba(20,10,50,.08)}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Outfit,system-ui,-apple-system,sans-serif;font-weight:300;line-height:1.6;
+  background-image:radial-gradient(ellipse at 0% 0%,rgba(124,92,240,.22),transparent 45%),radial-gradient(ellipse at 100% 100%,rgba(127,224,184,.06),transparent 45%);background-attachment:fixed}
+.wrap{max-width:980px;margin:0 auto;padding:48px 18px 80px}
+h1,h2,h3,h4{font-family:Outfit,system-ui,sans-serif;font-weight:700;letter-spacing:-.02em}
+em,.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;color:var(--lav);letter-spacing:-.01em}
+.eyebrow,.lbl{font-family:"DM Mono",ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.22em;font-weight:400}
+a{color:var(--lav);text-decoration:none;border-bottom:1px solid rgba(183,156,245,.35)}
+a:hover{border-color:var(--lav)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:8px}
+
+/* hero */
+.hero{text-align:center;padding:0 0 10px}
+.eyebrow{font-size:12px;color:var(--lav)}
+.hero h1{font-size:clamp(40px,8vw,84px);line-height:.98;margin:18px 0 18px;font-weight:700;letter-spacing:-.04em}
+.hero h1 em{font-size:1.02em}
+.tag{font-family:"Instrument Serif",Georgia,serif;font-style:italic;color:var(--gold);font-size:clamp(18px,2.6vw,26px);margin:0 0 14px;line-height:1.3}
+.hero .sub{color:var(--soft);font-size:17px;max-width:620px;margin:0 auto}
+.meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:28px 0 20px}
+.chip{font-family:"DM Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;font-size:11.5px;color:var(--soft);border:1px solid var(--line2);border-radius:99px;padding:10px 18px;background:rgba(255,255,255,.015)}
+.chip b{color:var(--txt);font-weight:500}
+.note{max-width:640px;margin:0 auto;font-size:14.5px;color:var(--muted)}
+
+/* sticky nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:8px;overflow-x:auto;padding:12px 4px;margin:0 -4px 26px;background:linear-gradient(var(--bg) 70%,transparent);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;border:1px solid var(--line2);border-radius:99px;padding:8px 14px;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:10.5px;color:var(--soft);background:var(--surf)}
+.nav a:hover,.nav a.on{color:var(--lav);border-color:var(--lav)}
+
+/* cards */
+.card{position:relative;background:linear-gradient(135deg,rgba(124,92,240,.14) 0%,var(--surf) 38%,var(--bg2) 100%);border:1px solid var(--line2);border-radius:26px;padding:34px 36px;margin-bottom:20px;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;opacity:.55;-webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 100%);mask-image:linear-gradient(90deg,transparent 30%,#000 100%)}
+.card>*{position:relative}
+@media(max-width:600px){.card{padding:24px 20px;border-radius:20px}}
+.card h2{font-size:clamp(26px,4.4vw,40px);margin:0 0 10px;line-height:1.05}
+.card .lead{color:var(--soft);font-size:16px;margin:0 0 22px;max-width:680px}
+.kicker{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--gold);margin-bottom:14px}
+
+/* laws */
+.laws{display:grid;gap:0}
+.law{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.law:first-child{border-top:none;padding-top:4px}
+.law .icon{flex:0 0 44px;font-family:"Instrument Serif",serif;font-style:italic;font-size:44px;line-height:1;color:var(--lav);text-align:center}
+.law h3{margin:0 0 6px;font-size:clamp(20px,3vw,25px);line-height:1.2}
+.law p{margin:0;color:var(--soft);font-size:15.5px;max-width:640px}
+.law p b{color:var(--txt);font-weight:600}
+
+/* app / big three */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:700px){.three{grid-template-columns:1fr}}
+.dz{border:1px solid var(--line2);border-radius:18px;padding:18px;font-size:15px;color:var(--soft);background:rgba(0,0,0,.2)}
+.dz b{display:block;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:10.5px;color:var(--gold);font-weight:400;margin-bottom:8px}
+.dz .q{font-family:"Instrument Serif",serif;font-style:italic;color:var(--txt);font-size:20px;line-height:1.25;display:block;margin-bottom:8px}
+.why{font-size:16px;color:var(--soft);margin:18px 0 0;padding-left:16px;border-left:1px solid var(--lav)}
+.why b{color:var(--txt);font-weight:600}
+
+/* coaster */
+.coaster{margin:6px -8px 0}
+.coaster svg{width:100%;height:auto;display:block;overflow:visible}
+.trackbg{fill:none;stroke:var(--track);stroke-width:14;stroke-linecap:round}
+.trackfg{fill:none;stroke:url(#grad);stroke-width:3;stroke-linecap:round}
+.ties{fill:none;stroke:var(--line2);stroke-width:10;stroke-dasharray:1.5 16}
+.stn{cursor:pointer}
+.stn circle.ring2{fill:var(--bg2);stroke:var(--line2);stroke-width:1.5;transition:all .25s}
+.stn text{font-family:"DM Mono",monospace;font-size:13px;fill:var(--muted);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.stn.on circle.ring2{stroke:var(--lav);stroke-width:2;filter:drop-shadow(0 0 10px rgba(183,156,245,.6))}
+.stn.on text{fill:var(--lav)}
+.stn.seen circle.ring2{stroke:var(--mint)}
+.stn.seen text{fill:var(--mint)}
+.stn.on.seen circle.ring2{stroke:var(--lav)}
+.stn.on.seen text{fill:var(--lav)}
+#car{fill:var(--gold);filter:drop-shadow(0 0 8px rgba(232,200,120,.7))}
+.axis{font-family:"DM Mono",monospace;font-size:11px;fill:var(--muted);letter-spacing:.1em}
+.stops{display:flex;gap:8px;overflow-x:auto;padding:14px 2px 8px;scrollbar-width:thin}
+.stop{flex:0 0 auto;border:1px solid var(--line2);background:rgba(0,0,0,.2);color:var(--soft);border-radius:99px;padding:9px 15px;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:10.5px;cursor:pointer}
+.stop.on{color:var(--lav);border-color:var(--lav);box-shadow:0 0 18px rgba(183,156,245,.25)}
+.panel{border:1px solid var(--line2);border-radius:20px;background:rgba(0,0,0,.22);padding:26px 28px;margin-top:10px}
+@media(max-width:600px){.panel{padding:20px}}
+.phead{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:14px}
+.phead h3{margin:0;font-size:clamp(24px,3.6vw,32px);line-height:1.1}
+.phead .when{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.18em;font-size:10.5px;color:var(--lav);margin-bottom:6px}
+.ratio{min-width:210px;flex:0 1 260px}
+.ratio .rl{display:flex;justify-content:space-between;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:var(--muted);margin-bottom:6px}
+.ratio .rl b{color:var(--mint);font-weight:500}
+.ratio .rbar{height:8px;border-radius:99px;background:rgba(240,139,176,.35);overflow:hidden}
+.ratio .rbar i{display:block;height:100%;background:linear-gradient(90deg,var(--vio),var(--mint));transition:width .5s}
+.goal{font-size:16.5px;color:var(--txt);font-weight:500;margin:0 0 16px;max-width:680px}
+.say{margin:0 0 14px;padding:0;list-style:none}
+.say li{font-family:"Instrument Serif",serif;font-style:italic;font-size:19px;line-height:1.4;color:var(--txt);padding:12px 0 12px 18px;border-left:1px solid var(--lav);margin-bottom:8px;background:linear-gradient(90deg,rgba(183,156,245,.06),transparent 70%)}
+.say li small{display:block;font-family:Outfit,sans-serif;font-style:normal;font-size:13px;color:var(--muted);margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media(max-width:640px){.two{grid-template-columns:1fr}}
+.listen,.dont{border-radius:16px;padding:14px 16px;font-size:14.5px;color:var(--soft)}
+.listen{border:1px solid rgba(127,224,184,.3)}
+.dont{border:1px solid rgba(240,139,176,.35)}
+.listen b,.dont b{display:block;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:10px;font-weight:400;margin-bottom:6px}
+.listen b{color:var(--mint)}.dont b{color:var(--pink)}
+.pnav{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.ghost{background:transparent;border:1px solid var(--line2);color:var(--soft);border-radius:99px;padding:10px 18px;font-weight:500;font-size:13px;cursor:pointer}
+.ghost:hover{border-color:var(--lav);color:var(--lav)}
+.ghost:disabled{opacity:.35;cursor:default}
+
+/* builder */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px}
+@media(max-width:640px){.form{grid-template-columns:1fr}}
+.field label{display:block;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:10.5px;color:var(--lav);margin-bottom:8px}
+.field input{width:100%;background:rgba(0,0,0,.25);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;color:var(--txt);font-family:Outfit,sans-serif;font-weight:300;font-size:15px}
+.field input::placeholder{color:var(--muted)}
+.full{grid-column:1/-1}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{border:1px solid var(--line2);background:rgba(0,0,0,.2);color:var(--soft);border-radius:99px;padding:10px 16px;font-size:13.5px;font-weight:500;cursor:pointer}
+.seg button.on{background:linear-gradient(135deg,var(--vio),var(--lav));color:#fff;border-color:transparent}
+.script{border:1px solid var(--line2);border-radius:18px;margin-top:22px;overflow:hidden;background:rgba(0,0,0,.2)}
+.script-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.script-h b{font-weight:600;font-size:16px}
+.script-h small{display:block;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--muted);margin-top:4px}
+.copy{background:linear-gradient(135deg,var(--vio),var(--lav));color:#fff;border:none;border-radius:99px;padding:10px 18px;font-family:Outfit,sans-serif;font-weight:600;font-size:13px;cursor:pointer;white-space:nowrap;box-shadow:0 8px 24px rgba(124,92,240,.35)}
+.copy:hover{filter:brightness(1.1)}
+.out{padding:8px 20px 18px}
+.beat{padding:12px 0;border-top:1px solid var(--line)}
+.beat:first-child{border-top:none}
+.beat .bl{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--gold);margin-bottom:4px}
+.beat .bt{font-size:16px;color:var(--soft);line-height:1.55}
+.beat.stage .bt{font-family:"Instrument Serif",serif;font-style:italic;color:var(--mint);font-size:18px}
+.beat.price .bt{color:var(--txt);font-weight:500;font-size:17.5px}
+.fix{font-size:13.5px;color:var(--pink);margin-top:10px;min-height:1em}
+
+/* silence */
+.silence{text-align:center;padding:10px 0 4px}
+.sbig{font-family:Outfit,sans-serif;font-weight:700;font-size:clamp(84px,18vw,150px);letter-spacing:-.06em;line-height:.9;margin:6px 0 10px;font-variant-numeric:tabular-nums}
+.sbig span{font-family:"Instrument Serif",serif;font-style:italic;font-weight:400;font-size:.4em;color:var(--lav);letter-spacing:0;margin-left:6px}
+.smsg{font-family:"Instrument Serif",serif;font-style:italic;color:var(--gold);font-size:clamp(20px,3vw,26px);min-height:1.4em;margin:0 0 20px}
+.sbtn{background:linear-gradient(135deg,var(--vio),var(--lav));color:#fff;border:none;border-radius:99px;padding:16px 28px;font-weight:600;font-size:15px;cursor:pointer;box-shadow:0 10px 30px rgba(124,92,240,.4)}
+.sbtn.stop{background:transparent;color:var(--pink);border:1px solid var(--pink);box-shadow:none}
+.srec{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:10.5px;color:var(--muted);margin-top:16px}
+.silence.live .sbig{color:var(--mint)}
+
+/* objections */
+.sec{padding:0}
+.shead{display:flex;align-items:center;gap:18px;padding:22px 26px;cursor:pointer;user-select:none;background:none;border:none;width:100%;text-align:left;color:inherit}
+@media(max-width:600px){.shead{padding:18px;gap:12px}}
+.obj{border:1px solid var(--line2);border-radius:18px;background:rgba(0,0,0,.2);margin-bottom:10px;overflow:hidden}
+.obj .qt{flex:1;font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(20px,3vw,24px);line-height:1.2;color:var(--txt)}
+.obj .qt small{display:block;font-family:"DM Mono",monospace;font-style:normal;text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--gold);margin-top:6px}
+.chev{color:var(--muted);font-size:12px;transition:transform .2s}
+.obj.open .chev{transform:rotate(90deg);color:var(--lav)}
+.obody{display:none;padding:0 26px 22px}
+@media(max-width:600px){.obody{padding:0 18px 18px}}
+.obj.open .obody{display:block}
+.obody p{margin:0 0 12px;color:var(--soft);font-size:15.5px}
+.obody p b{color:var(--txt);font-weight:600}
+
+/* design */
+.design{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+
+/* never */
+.never{display:grid;gap:0}
+.nv{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:15.5px;color:var(--soft)}
+.nv:first-child{border-top:none}
+.nv .x{flex:0 0 22px;height:22px;border-radius:50%;border:1.5px solid var(--pink);color:var(--pink);display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:2px}
+.nv b{color:var(--txt);font-weight:500;display:block}
+
+/* scorecard */
+.prog{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.pct{font-family:Outfit,sans-serif;font-weight:700;font-size:64px;letter-spacing:-.05em;line-height:.9}
+.bar{height:6px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:18px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--vio),var(--lav),var(--mint));transition:width .5s}
+.task{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line);cursor:pointer;align-items:flex-start;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;color:inherit}
+.cb{flex:0 0 20px;height:20px;border-radius:50%;border:1.5px solid var(--mint);margin-top:3px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.task.done .cb::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint)}
+.task.done .cb{box-shadow:0 0 12px rgba(127,224,184,.4)}
+.tt{font-weight:500;font-size:16px;color:var(--txt);line-height:1.45}
+.task.done .tt{color:var(--muted)}
+.hint{font-size:14px;color:var(--muted);margin-top:4px;font-weight:300}
+.outcome{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line2);align-items:center}
+.outcome .lbl{font-size:10.5px;color:var(--muted);margin-right:6px}
+.ob{border:1px solid var(--line2);background:rgba(0,0,0,.2);color:var(--txt);border-radius:99px;padding:10px 16px;font-weight:500;font-size:13.5px;cursor:pointer}
+.ob.y{border-color:rgba(127,224,184,.5);color:var(--mint)}
+.ob.n{border-color:var(--line2);color:var(--soft)}
+.ob.m{border-color:rgba(240,139,176,.5);color:var(--pink)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+@media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{border:1px solid var(--line2);border-radius:18px;padding:16px;background:rgba(0,0,0,.18)}
+.stat-num{font-family:Outfit,sans-serif;font-weight:700;font-size:30px;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat-label{font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--muted);margin-top:6px}
+.math{font-family:"Instrument Serif",serif;font-style:italic;color:var(--gold);font-size:21px;line-height:1.35;margin:18px 0 6px}
+.mnote{font-size:14.5px;color:var(--muted);margin:0}
+.reset{margin-top:14px;background:none;border:none;color:var(--muted);font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.14em;font-size:10px;cursor:pointer;padding:6px 0}
+.reset:hover{color:var(--pink)}
+
+/* tapping + practice (v2) */
+.tapset{border:1px solid rgba(232,200,120,.4);border-radius:18px;padding:18px 20px;margin:0 0 14px;background:rgba(232,200,120,.06)}
+.tapset b{display:block;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.16em;font-size:10.5px;color:var(--gold);font-weight:400;margin-bottom:8px}
+.tapset span{font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(20px,3vw,24px);line-height:1.3;color:var(--txt)}
+.prompt{margin:0;padding:16px 20px 20px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:"DM Mono",ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.65;color:var(--soft);max-height:340px;overflow-y:auto}
+
+.quote{text-align:center;padding:40px 10px 10px;font-family:"Instrument Serif",serif;font-style:italic;font-size:clamp(24px,4vw,36px);line-height:1.2;color:var(--lav)}
+.quote small{display:block;font-family:"DM Mono",monospace;font-style:normal;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--muted);margin-top:16px}
+.toast{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:linear-gradient(135deg,var(--vio),var(--lav));color:#fff;font-family:"DM Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:11px;padding:12px 18px;border-radius:99px;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;z-index:50}
+.toast.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">Spiritual Business Skool · 1:1 calls, readings &amp; audits</div>
+  <h1>The Sales Call <em>Playbook.</em></h1>
+  <p class="tag">Whoever asks the questions holds the room.</p>
+  <p class="sub">Sales has nothing to do with convincing anyone of your offer or the power of your readings. It's uncovering the value of what you do so clearly that yes is the obvious next step.</p>
+</div>
+
+<div class="meta">
+  <span class="chip">Talk ratio · <b>80 them / 20 you</b></span>
+  <span class="chip">The frame · <b>first 2 minutes</b></span>
+  <span class="chip">Links after the call · <b>zero</b></span>
+</div>
+<p class="note" style="text-align:center;margin-bottom:10px">Your script, scorecard and numbers save in this browser. Open it in the same one each time.</p>
+
+<nav class="nav" aria-label="Sections">
+  <a href="#why">Why you ask</a>
+  <a href="#laws">The 3 laws</a>
+  <a href="#app">Before the call</a>
+  <a href="#tap">Tap in</a>
+  <a href="#coaster">The roller coaster</a>
+  <a href="#builder">Build your ask</a>
+  <a href="#silence">Shut up timer</a>
+  <a href="#practice">Practice</a>
+  <a href="#objections">Objections</a>
+  <a href="#readings">Readings &amp; audits</a>
+  <a href="#design">By design</a>
+  <a href="#never">Never</a>
+  <a href="#score">Scorecard</a>
+</nav>
+
+<!-- WHY YOU ASK -->
+<section class="card" id="why">
+  <div class="kicker">Read this first</div>
+  <h2>Why you <em>ask.</em></h2>
+  <p class="lead">No one is raising their hand to hand you thousands of dollars. It's just not happening. You have to ask.</p>
+  <div class="laws">
+    <div class="law"><div class="icon">✦</div><div><h3>Some people have a soul contract with you.</h3><p>They need to work with you, and <b>they are going to struggle until you show up and sell them something.</b> The offer is how they find you.</p></div></div>
+    <div class="law"><div class="icon">✦</div><div><h3>You didn't come here to serve everybody.</h3><p>You came here for a very specific purpose: to serve your people. <b>You are doing your people a disservice if you don't ask for the sale.</b></p></div></div>
+    <div class="law"><div class="icon">✦</div><div><h3>Abundance aligns itself with the consciousness that can contain it.</h3><p>That's the number one spiritual law of money. You are the vessel. <b>You get to be spiritual and wealthy.</b> If you don't believe that, the ask never leaves your mouth.</p></div></div>
+  </div>
+  <p class="why">So at the end of every paid reading or audit, you say one sentence: <b>"I know we covered a lot today. Did you want to integrate and figure all of this out by yourself, or would you like to hear what it would be like for us to work together?"</b> Everything on this page is there to get you to that sentence.</p>
+</section>
+
+<!-- LAWS -->
+<section class="card" id="laws">
+  <div class="kicker">If you remember nothing else</div>
+  <h2>The three <em>laws.</em></h2>
+  <p class="lead">Everything else on this page is detail. These three are the game.</p>
+  <div class="laws">
+    <div class="law"><div class="icon">i</div><div><h3>Sending links after the call is where sales go to die.</h3><p>We never do it. Not the payment link, not the "info," not the "let me send you the details." <b>Money moves while you're both still on the call.</b> Once they hang up, the momentum is gone and life takes over. The only link you ever send is a payment link to someone who just told you they're ready to join right now.</p></div></div>
+    <div class="law"><div class="icon">ii</div><div><h3>Two moments decide the call: the frame and the ask.</h3><p>The first two minutes set who's leading. The last two minutes are where you ask for the business. <b>Everything in between just feeds those two.</b></p></div></div>
+    <div class="law"><div class="icon">iii</div><div><h3>Uncover obstacles before they become objections.</h3><p>Money, time, a partner who "needs to weigh in." If it comes up at the end, it's an objection. <b>If you surface it in the middle, it's just information</b> and you can work with it.</p></div></div>
+  </div>
+</section>
+
+<!-- APPLICATION -->
+<section class="card" id="app">
+  <div class="kicker">Before the call</div>
+  <h2>Your application asks <em>three things.</em></h2>
+  <p class="lead">If your booking form doesn't hit these, fix it today. You walk in already knowing the story, and you use their own words back to them.</p>
+  <div class="three">
+    <div class="dz"><b>Now</b><span class="q">Where are you right now?</span>Revenue, clients, members, what their week actually looks like.</div>
+    <div class="dz"><b>Next</b><span class="q">Where do you want to be?</span>In 90 days, 6 months, a year. The more specific, the easier the ask.</div>
+    <div class="dz"><b>The gap</b><span class="q">What's in the way? What have you already tried?</span>Every course, coach and hack. That's the real pain.</div>
+  </div>
+  <p class="why">On the call, don't ask why it didn't work. Ask <b>"what was good about that?"</b> They'll tell you what was good and what was bad, and you never have to make it a negative.</p>
+  <p class="why">Not sure whether you need a video before the call? <b>The Ask Playbook</b> has a five-tick check for that under Going forward, plus the outline for the video.</p>
+</section>
+
+<!-- TAP IN -->
+<section class="card" id="tap">
+  <div class="kicker">Five minutes before you join</div>
+  <h2>Tap in. <em>Then dial in.</em></h2>
+  <p class="lead">You can't hold the room from a contracted body. Tap through this once before every call, out loud. Seven taps on each point, one line per point.</p>
+  <div class="tapset"><b>Side of the hand · say it three times</b><span>"Even though part of me is scared to ask for the sale, I absolutely love and accept myself."</span></div>
+  <div class="design">
+    <div class="dz"><b>Eyebrow</b><span class="q">I am here to be of service.</span></div>
+    <div class="dz"><b>Side of the eye</b><span class="q">I am only giving love and light.</span></div>
+    <div class="dz"><b>Under the eye</b><span class="q">I am a channel for the Creator's energy.</span></div>
+    <div class="dz"><b>Under the nose</b><span class="q">I am only here to serve.</span></div>
+    <div class="dz"><b>Chin</b><span class="q">I absolutely love and accept myself.</span></div>
+    <div class="dz"><b>Collarbone</b><span class="q">I am open to abundance. I am open to prosperity.</span></div>
+    <div class="dz"><b>Under the arm</b><span class="q">I am open to aligned clients.</span></div>
+    <div class="dz"><b>Top of the head</b><span class="q">Creator, please help me be a channel for you.</span></div>
+  </div>
+  <p class="why">One breath. Open their application. <b>Then join the call.</b></p>
+</section>
+
+<!-- ROLLER COASTER -->
+<section class="card" id="coaster">
+  <div class="kicker">The call, stage by stage</div>
+  <h2>The roller coaster <em>method.</em></h2>
+  <p class="lead">It starts on a high, dips into the pain, climbs to the vision, and you ask at the top. Tap a stop to ride it.</p>
+
+  <div class="coaster">
+    <svg viewBox="0 0 900 260" role="img" aria-label="Roller coaster curve of a sales call: high at the frame, low at the pain, peak at the vision, then the ask">
+      <defs>
+        <linearGradient id="grad" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0" stop-color="#7c5cf0"/><stop offset=".55" stop-color="#b79cf5"/><stop offset="1" stop-color="#7fe0b8"/>
+        </linearGradient>
+      </defs>
+      <path id="ties" class="ties"/>
+      <path id="trackbg" class="trackbg"/>
+      <path id="track" class="trackfg"/>
+      <g id="stns"></g>
+      <circle id="car" r="7"/>
+      <text class="axis" x="20" y="252">0:00</text>
+      <text class="axis" x="880" y="252" text-anchor="end">the ask</text>
+    </svg>
+  </div>
+  <div class="stops" id="stops" role="tablist"></div>
+
+  <div class="panel" id="panel" aria-live="polite"></div>
+</section>
+
+<!-- BUILDER -->
+<section class="card" id="builder">
+  <div class="kicker">Your words, your price</div>
+  <h2>Build your <em>ask.</em></h2>
+  <p class="lead">Fill this in once. You get the whole closing sequence, from "do you want to keep doing this alone" to the price, written the way you'll actually say it.</p>
+
+  <div class="form">
+    <div class="field full"><label>What kind of call?</label>
+      <div class="seg" data-seg="type"><button data-v="sales" class="on">Sales / clarity call</button><button data-v="reading">Reading</button><button data-v="audit">Audit</button></div></div>
+    <div class="field full"><label>How is it priced?</label>
+      <div class="seg" data-seg="pay"><button data-v="once" class="on">One-time investment</button><button data-v="monthly">Monthly</button></div></div>
+    <div class="field"><label for="price">Price</label><input id="price" data-f="price" inputmode="decimal" placeholder="3000"></div>
+    <div class="field" id="durField"><label for="dur">Container</label><input id="dur" data-f="dur" placeholder="the next 90 days"></div>
+    <div class="field"><label for="a">They need help with A</label><input id="a" data-f="a" placeholder="filling their readings calendar"></div>
+    <div class="field"><label for="b">B</label><input id="b" data-f="b" placeholder="pricing their offer"></div>
+    <div class="field"><label for="c">C</label><input id="c" data-f="c" placeholder="showing up online consistently"></div>
+    <div class="field"><label for="vision">Their vision, in their words</label><input id="vision" data-f="vision" placeholder="working three days a week from the beach"></div>
+  </div>
+  <p class="fix" id="fix"></p>
+
+  <div class="script">
+    <div class="script-h"><div><b>Your closing sequence</b><small>Read it out loud five times before your next call</small></div><button class="copy" id="copyAsk">Copy</button></div>
+    <div class="out" id="out"></div>
+  </div>
+</section>
+
+<!-- SILENCE -->
+<section class="card" id="silence">
+  <div class="kicker">Practice the hardest part</div>
+  <h2>Say the price. <em>Then shut up.</em></h2>
+  <p class="lead">The person who talks first loses. Practice here: say your price out loud, hit the button, and don't make a sound until you'd honestly hear their answer.</p>
+  <div class="silence" id="sil">
+    <div class="sbig" id="secs">0<span>sec</span></div>
+    <p class="smsg" id="smsg">Ready when you are.</p>
+    <button class="sbtn" id="sgo">I just said my price</button>
+    <div class="srec" id="srec"></div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section class="card" id="practice">
+  <div class="kicker">Rehearse before it's real</div>
+  <h2>Practice the ask <em>with Claude.</em></h2>
+  <p class="lead">Copy this into Claude. It plays your client, goes quiet when you say your price, hands you one real objection, and scores you out of ten. Use voice mode so you're saying it out loud. It fills in from "Build your ask" above.</p>
+  <div class="script">
+    <div class="script-h"><div><b>Your practice prompt</b><small>Paste it into a new Claude chat</small></div><button class="copy" id="copyPrompt">Copy</button></div>
+    <pre class="prompt" id="prompt" tabindex="0"></pre>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="card" id="objections">
+  <div class="kicker">When they don't say yes (yet)</div>
+  <h2>What they say. <em>What you say.</em></h2>
+  <p class="lead">Yes is great. No is great. Indecision is the only thing you can't work with. Your whole job here is to turn a maybe into a clean answer.</p>
+  <div id="objs"></div>
+</section>
+
+<!-- READINGS & AUDITS -->
+<section class="card" id="readings">
+  <div class="kicker">Readings, audits &amp; strategy calls</div>
+  <h2>Give the big picture. <em>Go deep on one.</em></h2>
+  <p class="lead">On a reading you'll talk more, and that's fine. But you're still not solving every problem on the call. You're showing them the map.</p>
+  <ul class="say">
+    <li>"Here's where I see us going. This is what I'd suggest: one, two, three."<small>Three big-picture moves. Not twelve.</small></li>
+    <li>"Which one of these would you like to dive deeper into today?"<small>They choose. Go deep on that one and take notes the whole time.</small></li>
+    <li>"I know we covered a lot today. Tell me, was this helpful for you?"<small>Let them answer. Then you're at the top of the coaster. Make the ask.</small></li>
+  </ul>
+  <div class="two">
+    <div class="listen"><b>The one thing you do send after</b>A recap of what you covered, for calls they've already paid for. Run the transcript through Claude so they can actually remember the reading. That's delivery, not selling.</div>
+    <div class="listen"><b>Yes on the call? Their reading counts</b>If they decide on the call to join your ongoing container, what they paid for the reading or audit goes toward it. If they decide later, that's fine too, and they pay the full investment. Deciding in the room is what earns the credit.</div>
+    <div class="dont"><b>What you don't send after</b>A payment link, a sales page, a "here's how it works" email, or a PDF of deliverables. If you're about to hit send on any of those, they should have paid on the call.</div>
+  </div>
+</section>
+
+<!-- DESIGN -->
+<section class="card" id="design">
+  <div class="kicker">Sell in your design</div>
+  <h2>Your chart tells you how. <em>Never whether.</em></h2>
+  <p class="lead">Nobody's design says "don't make the ask." Here's how each type makes it without abandoning themselves.</p>
+  <div class="design">
+    <div class="dz"><b>Projector</b>The booked call is the invitation. You've been invited to guide, and guiding includes telling them what it costs to go further with you.</div>
+    <div class="dz"><b>Generator</b>They booked, you're responding. Let your energy show when it's a fit, then say it out loud. Your gut lighting up isn't the ask. The ask is the ask.</div>
+    <div class="dz"><b>Manifesting Generator</b>You'll want to skip steps. Skip the deliverables list. Never skip the pain, the vision or the permission.</div>
+    <div class="dz"><b>Manifestor</b>You're here to inform. Tell them what you see, what you'd do and what it costs, clearly. Don't wait for them to ask about working together.</div>
+    <div class="dz"><b>Reflector</b>You mirror the room. Script the call so their doubt doesn't turn into yours. You can take time on your own big decisions. Theirs get made on the call.</div>
+    <div class="dz"><b>Open solar plexus</b>You feel their discomfort at the price like it's yours. It isn't. Script it, stay neutral, hold the silence. Sales is service.</div>
+  </div>
+</section>
+
+<!-- NEVER -->
+<section class="card" id="never">
+  <div class="kicker">The don't list</div>
+  <h2>We never <em>do this.</em></h2>
+  <div class="never">
+    <div class="nv"><span class="x">✕</span><div><b>Send links or emails after the call.</b>Payment happens on the call. Onboarding gets booked on the call.</div></div>
+    <div class="nv"><span class="x">✕</span><div><b>List deliverables nobody asked for.</b>How many calls, how often, which Voxer hours. They're paying for the transformation. If they ask, answer in one line and ask a question back.</div></div>
+    <div class="nv"><span class="x">✕</span><div><b>Pitch without permission.</b>Always ask if they want to hear what working together looks like. Always.</div></div>
+    <div class="nv"><span class="x">✕</span><div><b>Offer a payment plan before they ask.</b>Say the full price. If it's too much, they tell you the number.</div></div>
+    <div class="nv"><span class="x">✕</span><div><b>Solve every problem on the call.</b>Your job is to uncover the pain, not to fix it for free in 45 minutes.</div></div>
+    <div class="nv"><span class="x">✕</span><div><b>Pull someone in.</b>If you have to pull them in, you'll have to pull them along. That's no fun for either of you.</div></div>
+  </div>
+</section>
+
+<!-- SCORECARD -->
+<section class="card" id="score">
+  <div class="kicker">After every call</div>
+  <h2>Score the <em>call.</em></h2>
+  <p class="lead">Check what you actually did, then log how it ended. The number one leading indicator of revenue is how many sales conversations you're having, so we count every one.</p>
+  <div class="prog"><div class="pct" id="pct">0/10</div><div style="color:var(--soft);font-size:15px;max-width:420px" id="pmsg">Tick what you did on the call you just had.</div></div>
+  <div class="bar"><i id="barfill"></i></div>
+  <div id="tasks" style="margin-top:14px"></div>
+  <div class="outcome"><span class="lbl">How did it end?</span>
+    <button class="ob y" data-out="yes">Yes, paid on the call</button>
+    <button class="ob n" data-out="no">Clean no</button>
+    <button class="ob m" data-out="maybe">"Let me think about it"</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num" id="sCalls">0</div><div class="stat-label">Conversations</div></div>
+    <div class="stat"><div class="stat-num" id="sYes">0</div><div class="stat-label">Yeses</div></div>
+    <div class="stat"><div class="stat-num" id="sRate">–</div><div class="stat-label">Close rate</div></div>
+    <div class="stat"><div class="stat-num" id="sMaybe">0</div><div class="stat-label">Maybes held</div></div>
+  </div>
+  <div class="math" id="math"></div>
+  <p class="mnote" id="mnote"></p>
+  <button class="reset" id="resetLog">Reset my numbers</button>
+</section>
+
+<div class="quote">"Yes is great. No is great. It's indecision that's impossible to navigate."<small>Amanda · Spiritual Business Skool</small></div>
+
+</div>
+<div class="toast" id="toast">Saved ✓</div>
+
+<script>
+var KEY='sbs_sales_call_playbook_v1';
+var state={f:{type:'sales',pay:'once'},checks:{},log:{calls:0,yes:0,no:0,maybe:0},best:0,seen:{}};
+function load(){try{var s=localStorage.getItem(KEY);if(s){var p=JSON.parse(s);for(var k in p)state[k]=p[k];}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+var tt;function toast(m){var t=document.getElementById('toast');t.textContent=m||'Saved ✓';t.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},1800);}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+/* ---------- ROLLER COASTER ---------- */
+var STAGES=[
+ {name:'The frame',when:'0:00 – 2:00',them:70,
+  goal:'Get them to say, out loud, the problem that made them book. If you don\'t get it in the first two minutes, they\'ll dilly-dally the whole call.',
+  say:[['"Can you see me okay? Can you hear me okay? Great."',''],['"Where in the world are you calling from?"','One line of small talk. Then move on, quickly.'],['"Well, I\'m looking over your application and I\'d love to hear from you. What specifically made you book this call with me today?"','This is the frame. You lead, you ask, they talk.']],
+  listen:'The pain in their own words. Nobody books a call because everything is hunky-dory. They have a problem. Write down exactly how they say it.',
+  dont:'Introduce yourself for five minutes, walk through your background, or explain how the call will go. The frame is a question, not a speech.'},
+ {name:'The pain',when:'2:00 – 15:00',them:85,
+  goal:'Go under the first answer. Where are they now, what has it cost them, and what have they already tried?',
+  say:[['"Tell me more about that."',''],['"What have you already tried?"',''],['"What was good about that?"','They\'ll tell you the good and the bad. You never have to make it a negative.'],['"How long has this been going on?"','']],
+  listen:'The second and third layer. The first answer is the polite one. The real pain is usually two "tell me more"s down.',
+  dont:'Start fixing it. The moment you solve their problem on the call, you\'ve given away the thing they came to buy.'},
+ {name:'The obstacles',when:'15:00 – 25:00',them:80,
+  goal:'Surface anything that could stop a yes while it\'s still just information, not an objection at the end.',
+  say:[['"If we found the right fit today, is there anything that would stop you from getting started this week?"',''],['"Is anyone else part of this decision for you?"','A partner surprise at minute 44 is a failure of minute 20.'],['"How are you feeling about investing in yourself right now?"','']],
+  listen:'Money, time, a partner, fear of another failed program. Name it now and address it now.',
+  dont:'Skip this because it feels awkward. Awkward now is way cheaper than "let me think about it" later.'},
+ {name:'The vision',when:'25:00 – 35:00',them:90,
+  goal:'Take them to the top of the ride. They describe the life they want, in detail, in their own words.',
+  say:[['"Okay, paint the vision for me. What would you like your life to look like over the next three to six months?"',''],['"And a year from now?"',''],['"What would that mean for you?"','Let them feel it. Stay quiet.']],
+  listen:'Specifics you\'ll say back to them in the ask: the number, the schedule, the feeling.',
+  dont:'Rush this. The vision is the height of the coaster. The higher it goes, the easier the ask.'},
+ {name:'Permission',when:'35:00 – 38:00',them:50,
+  goal:'Reflect A, B and C back, and ask if they want to hear about working together before you say a single word about your offer.',
+  say:[['"Okay, amazing. So you need help with A, B and C. This is definitely something I can help you with."',''],['"Would you like to continue figuring this out by yourself, or would you like to hear what it would be like to work together?"','Always get permission before you pitch. Always.']],
+  listen:'"Yes, I would." Nearly everyone says yes here, because you earned it.',
+  dont:'Launch into the pitch without asking. Permission turns a pitch into an invitation.'},
+ {name:'Present & pre-close',when:'38:00 – 42:00',them:40,
+  goal:'Present the transformation, not the deliverables. Then confirm they\'re a yes if the numbers work, before you say the numbers.',
+  say:[['"I\'d help you with A, B and C, so that [their vision]. Does that feel like it would be helpful to you?"',''],['"Okay, great. So it sounds like if the investment made sense, you\'d be ready to go. Is that correct?"','This is where obstacles die before they turn into objections.']],
+  listen:'Two yeses. If you don\'t get them, go back to the pain. Something\'s still hidden.',
+  dont:'List how many calls, how often and what\'s in the portal. Unless they ask, they don\'t care. They\'re buying the outcome.'},
+ {name:'The ask',when:'42:00 – end',them:95,
+  goal:'Say the price once, clearly, with the next step attached. Then shut the fuck up.',
+  say:[['"Okay, great. It\'s a one-time investment of $3,000 to work together for the next 90 days. From there, we\'ll get your onboarding scheduled as early as this week."','Build your own version below.'],['[silence]','Whoever talks first loses.'],['"Amazing. I\'m sending the link in the chat now, and we\'ll book your onboarding before we hang up."','On the call. Stripe (it has Klarna) or your Skool tier.']],
+  listen:'Yes, no, or "let me think about it." All three have a script below.',
+  dont:'Fill the silence, justify the price, offer a discount, or say "I\'ll send you the link after."'}
+];
+var PTS=[[20,100],[80,88],[215,208],[355,188],[505,42],[640,82],[775,60],[885,72]];
+function catmull(p){var d='M'+p[0][0]+','+p[0][1];for(var i=0;i<p.length-1;i++){var p0=p[i-1]||p[i],p1=p[i],p2=p[i+1],p3=p[i+2]||p2;var c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6,c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;d+=' C'+c1x.toFixed(1)+','+c1y.toFixed(1)+' '+c2x.toFixed(1)+','+c2y.toFixed(1)+' '+p2[0]+','+p2[1];}return d;}
+var d=catmull(PTS);['ties','trackbg','track'].forEach(function(id){document.getElementById(id).setAttribute('d',d);});
+var track=document.getElementById('track'),TL=track.getTotalLength(),car=document.getElementById('car');
+function lenAt(x){var lo=0,hi=TL;for(var i=0;i<30;i++){var m=(lo+hi)/2;if(track.getPointAtLength(m).x<x)lo=m;else hi=m;}return (lo+hi)/2;}
+var stnLen=STAGES.map(function(_,i){return lenAt(PTS[i+1][0]);});
+var g=document.getElementById('stns'),stops=document.getElementById('stops'),cur=0,carLen=stnLen[0],anim;
+STAGES.forEach(function(s,i){
+  var p=PTS[i+1];
+  var el=document.createElementNS('http://www.w3.org/2000/svg','g');el.setAttribute('class','stn');el.setAttribute('tabindex','0');el.setAttribute('role','button');el.setAttribute('aria-label',s.name);
+  el.innerHTML='<circle class="ring2" cx="'+p[0]+'" cy="'+p[1]+'" r="19"/><text x="'+p[0]+'" y="'+p[1]+'">'+(i+1)+'</text>';
+  el.addEventListener('click',function(){go(i);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go(i);}});
+  g.appendChild(el);
+  var b=document.createElement('button');b.className='stop';b.setAttribute('role','tab');b.textContent=(i+1)+' · '+s.name;b.addEventListener('click',function(){go(i);});stops.appendChild(b);
+});
+function placeCar(L){var pt=track.getPointAtLength(L);car.setAttribute('cx',pt.x);car.setAttribute('cy',pt.y-24);}
+function moveCar(to){cancelAnimationFrame(anim);var from=carLen,t0=null,dur=matchMedia('(prefers-reduced-motion: reduce)').matches?1:Math.min(1200,300+Math.abs(to-from)*1.2);
+  function step(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/dur);var e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;carLen=from+(to-from)*e;placeCar(carLen);if(k<1)anim=requestAnimationFrame(step);}
+  anim=requestAnimationFrame(step);}
+function go(i){
+  cur=i;state.seen[i]=true;save();
+  var s=STAGES[i];
+  g.querySelectorAll('.stn').forEach(function(n,j){n.classList.toggle('on',j===i);n.classList.toggle('seen',!!state.seen[j]);});
+  stops.querySelectorAll('.stop').forEach(function(n,j){n.classList.toggle('on',j===i);n.setAttribute('aria-selected',j===i);});
+  var sc=stops.children[i];stops.scrollTo({left:sc.offsetLeft-stops.clientWidth/2+sc.offsetWidth/2,behavior:'smooth'});
+  moveCar(stnLen[i]);
+  var say=s.say.map(function(l){return '<li>'+esc(l[0])+(l[1]?'<small>'+esc(l[1])+'</small>':'')+'</li>';}).join('');
+  document.getElementById('panel').innerHTML=
+   '<div class="phead"><div><div class="when">Stop '+(i+1)+' of 7 · '+s.when+'</div><h3>'+s.name+'</h3></div>'+
+   '<div class="ratio"><div class="rl"><span>Who\'s talking</span><span><b>Them '+s.them+'%</b> · You '+(100-s.them)+'%</span></div><div class="rbar"><i style="width:'+s.them+'%"></i></div></div></div>'+
+   '<p class="goal">'+esc(s.goal)+'</p><ul class="say">'+say+'</ul>'+
+   '<div class="two"><div class="listen"><b>Listen for</b>'+esc(s.listen)+'</div><div class="dont"><b>Don\'t</b>'+esc(s.dont)+'</div></div>'+
+   '<div class="pnav"><button class="ghost" id="prevS" '+(i===0?'disabled':'')+'>Previous stop</button><button class="ghost" id="nextS" '+(i===STAGES.length-1?'disabled':'')+'>Next stop</button></div>';
+  document.getElementById('prevS').onclick=function(){go(cur-1);};
+  document.getElementById('nextS').onclick=function(){go(cur+1);};
+}
+
+/* ---------- ASK BUILDER ---------- */
+function money(v){var n=parseFloat(String(v||'').replace(/[^0-9.]/g,''));if(!n)return '';return '$'+n.toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});}
+function priceNum(){return parseFloat(String(state.f.price||'').replace(/[^0-9.]/g,''))||0;}
+function abc(){var a=state.f.a||'A',b=state.f.b||'B',c=state.f.c||'C';return a+', '+b+' and '+c;}
+function buildAsk(){
+  var f=state.f,beats=[],p=money(f.price)||'[your price]',dur=f.dur||'the next 90 days',v=f.vision?(', so that you\'re '+f.vision):'';
+  if(f.type==='reading'){
+    beats.push(['Transition','"I know we uncovered a lot today. Tell me, was this helpful for you?"']);
+    beats.push(['stage','Let them answer.']);
+    beats.push(['Permission','"Wow, yeah, I really feel like we covered a lot. So would you like to integrate all of this and keep figuring it out by yourself, or would you like to hear what it would be like to work together?"']);
+  }else if(f.type==='audit'){
+    beats.push(['Transition','"So those are the three things I\'d focus on, and we just went deep on one."']);
+    beats.push(['Permission','"Would you like to keep figuring this out by yourself, or would you like to hear what it would be like to work together?"']);
+  }else{
+    beats.push(['Reflect','"Okay, amazing. So you need help with '+abc()+'. This is definitely something I can help you with."']);
+    beats.push(['Permission','"Would you like to continue figuring this out by yourself, or would you like to hear what it would be like to work together?"']);
+  }
+  beats.push(['stage','They say yes.']);
+  beats.push(['Present','"Okay, great. So I\'d help you with '+abc()+v+'. Does that feel like it would be helpful to you?"']);
+  beats.push(['stage','They say yes.']);
+  beats.push(['Pre-close','"Okay, great. So it sounds like if the investment made sense, you\'d be ready to go. Is that correct?"']);
+  beats.push(['stage','They say yes.']);
+  var ask=f.pay==='monthly'
+    ?'"It\'s an investment of '+p+' a month to work with me one-on-one to accomplish '+abc()+'. From there, we\'ll get your onboarding scheduled as early as this week."'
+    :'"It\'s a one-time investment of '+p+' to work together for '+dur+'. From there, we\'ll get your onboarding scheduled as early as this week."';
+  if(f.type!=='sales')ask=ask.slice(0,-1)+' And because you\'re deciding on this call, what you paid for today\'s '+(f.type==='audit'?'audit':'reading')+' goes toward it."';
+  beats.push(['price',ask]);
+  beats.push(['stage','Silence. Don\'t say anything. The person who talks first loses.']);
+  beats.push(['On a yes','"Amazing. I\'m dropping the link in the chat right now. Go ahead and check out, and then we\'ll book your onboarding before we hang up."']);
+  var out=document.getElementById('out');
+  out.innerHTML=beats.map(function(b){var cls=b[0]==='stage'?'beat stage':b[0]==='price'?'beat price':'beat';var lbl=b[0]==='stage'?'':b[0]==='price'?'The ask':b[0];return '<div class="'+cls+'">'+(lbl?'<div class="bl">'+lbl+'</div>':'')+'<div class="bt">'+esc(b[1])+'</div></div>';}).join('');
+  out.dataset.txt=beats.map(function(b){return b[0]==='stage'?'['+b[1]+']':b[1];}).join('\n\n');
+  document.getElementById('durField').style.display=f.pay==='monthly'?'none':'';
+  buildPrompt();
+  var fix=document.getElementById('fix'),n=priceNum();
+  fix.textContent=!n?'Add your price. You can\'t practice an ask you haven\'t decided on.':'';
+  renderLog();
+}
+function buildPrompt(){
+  var f=state.f,p=money(f.price)||'[my price]',dur=f.dur||'the next 90 days';
+  var call=f.type==='reading'?'a paid reading':f.type==='audit'?'a paid audit':'a sales call';
+  var offer=f.pay==='monthly'?p+' a month':p+' one time, to work together for '+dur;
+  var lines=[
+   'Help me practice the last ten minutes of '+call+'. Play my client and stay in character until I say "scene".',
+   '',
+   'My offer: '+offer+'.',
+   'What this client needs help with: '+abc()+'.',
+   'Their vision, in their words: '+(f.vision||'[their vision]')+'.',
+   '',
+   'How to play the client:',
+   '- You got real value from the call. You\'re warm, and a little nervous about money.',
+   '- Answer in one to three sentences, the way a real person talks. Don\'t make it easy and don\'t make it impossible.',
+   '- When I ask whether you want to hear what working together looks like, say yes.',
+   '- When I say the price, reply with only "..." for one turn. Notice whether I fill the silence, justify the price, or offer a discount or a payment plan before you ask for one.',
+   '- Then give me ONE of these, your choice: "Let me think about it." / "That\'s a lot for me right now." / "I need to talk to my partner." / "Can you just email me the link?"',
+   '- If I handle it well, say yes and ask how to pay.',
+   '',
+   'When I say "scene", drop the character and score me out of 10, one point each:',
+   '1. I asked if the call was helpful and let you answer.',
+   '2. I said back what you need help with, in your words.',
+   '3. I asked permission before I talked about my offer.',
+   '4. I presented the outcome, not a list of deliverables.',
+   '5. I checked you\'d be ready if the investment made sense, before I said the number.',
+   '6. I said the price once, clearly.',
+   '7. I held the silence.',
+   '8. I didn\'t justify, discount, or offer a payment plan first.',
+   '9. I asked what specifically you needed to think about, instead of accepting a maybe.',
+   '10. Payment and onboarding happened on the call, not "I\'ll send it after".',
+   '',
+   'Then give me the one line I most need to practice, word for word the way I should say it, and ask if I want to go again with a different objection.',
+   '',
+   'Start now, in character. Your first line: "Wow, that was a lot. Thank you."'
+  ];
+  document.getElementById('prompt').textContent=lines.join('\n');
+}
+document.querySelectorAll('[data-seg]').forEach(function(seg){
+  var k=seg.dataset.seg;
+  seg.querySelectorAll('button').forEach(function(b){
+    b.addEventListener('click',function(){state.f[k]=b.dataset.v;seg.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});save();buildAsk();});
+  });
+});
+var ft;document.querySelectorAll('[data-f]').forEach(function(inp){inp.addEventListener('input',function(){state.f[inp.dataset.f]=inp.value;buildAsk();clearTimeout(ft);ft=setTimeout(function(){save();toast('Script saved ✓');},700);});});
+function copyText(txt,btn){
+  function ok(){btn.textContent='Copied ✓';setTimeout(function(){btn.textContent='Copy'},1600);}
+  function fb(){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(ta);}
+  try{if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(ok,fb);else fb();}catch(e){fb();}
+}
+document.getElementById('copyAsk').addEventListener('click',function(){copyText(document.getElementById('out').dataset.txt||'',this);});
+document.getElementById('copyPrompt').addEventListener('click',function(){copyText(document.getElementById('prompt').textContent||'',this);});
+
+/* ---------- SILENCE ---------- */
+var sT=null,s0=0,sbtn=document.getElementById('sgo'),sil=document.getElementById('sil');
+var MSG=[[0,'Price said. Mouth closed.'],[4,'This is where you want to fill the silence. Don\'t.'],[8,'They\'re doing math. Let them.'],[13,'Don\'t you dare say "but we can do a payment plan."'],[20,'Whoever talks first loses.'],[30,'Still quiet. This is what holding the room feels like.'],[45,'Okay, legend. They\'ve definitely answered by now.']];
+function setBest(){document.getElementById('srec').textContent=state.best?'Your longest hold · '+state.best+' seconds':'';}
+function tick(){var s=Math.floor((Date.now()-s0)/1000);document.getElementById('secs').innerHTML=s+'<span>sec</span>';var m='';MSG.forEach(function(x){if(s>=x[0])m=x[1];});document.getElementById('smsg').textContent=m;}
+sbtn.addEventListener('click',function(){
+  if(sT){clearInterval(sT);sT=null;var s=Math.floor((Date.now()-s0)/1000);sil.classList.remove('live');sbtn.textContent='I just said my price';sbtn.classList.remove('stop');
+    document.getElementById('smsg').textContent=s<5?s+' seconds. You flinched. Say it again and sit in it.':s<12?s+' seconds. Better. Now go longer.':'You held '+s+' seconds. That\'s the whole skill.';
+    if(s>state.best){state.best=s;save();}setBest();return;}
+  s0=Date.now();sil.classList.add('live');sbtn.textContent='They answered';sbtn.classList.add('stop');tick();sT=setInterval(tick,250);
+});
+
+/* ---------- OBJECTIONS ---------- */
+var OBJ=[
+ {q:'"Let me think about it."',tag:'The most common one',body:
+  '<p>Say: <b>"Sure. What specifically is it that you need to think about? I want this to be a fuck yes decision for you."</b></p>'+
+  '<p>"Let me think about it" is almost always a foil for something else, usually money. Asking what specifically brings the real thing out so you can talk about it.</p>'+
+  '<p><b>If it\'s genuine</b> (emotional authority really does need to ride the wave), don\'t send a link. Book the decision on the call: <em>"Totally. Let\'s hop back on Thursday for ten minutes. Yes or no, both are great."</em> A calendar invite for a decision, not an email with a link. A maybe held is a no that costs money.</p>'},
+ {q:'"That\'s a lot for me right now."',tag:'The price balk',body:
+  '<p>First: if nobody ever balks at your price, you didn\'t go high enough.</p>'+
+  '<p>Say: <b>"Okay, so what would make it more digestible for you?"</b> Then stop talking. <b>Let them give you a number.</b> You never suggest one.</p>'+
+  '<p>They\'ll usually say something like "I could do a thousand a month." If it\'s within your boundaries and feels energetically honest to you: <b>"Okay, so if we could get you started at $1,000 a month for three months, would that work for you?"</b> They say yes. <b>"Great, we can get you started right now."</b> Send the link in the chat while you\'re still on.</p>'+
+  '<p>Stripe has Klarna. People have credit cards. You don\'t have to be the bank. If you run monthly through Skool, switch on your VIP tier, set the price to what you agreed, and send that link on the call.</p>'},
+ {q:'"How many calls do we get? What\'s included?"',tag:'Questions that flip the frame',body:
+  '<p>Whoever asks the questions is the one in power. If they start interviewing you, answer in one line and hand it back.</p>'+
+  '<p>Say: <b>"Oh my god, that\'s such a great question. What would feel most supportive for you?"</b></p>'+
+  '<p>Don\'t start listing deliverables. They\'re paying for the transformation, not the call count.</p>'},
+ {q:'"I need to talk to my partner."',tag:'An obstacle you missed',body:
+  '<p>This one should never be a surprise at the end. It belongs at stop 3: <b>"Is anyone else part of this decision for you?"</b></p>'+
+  '<p>If it comes up anyway: <b>"Totally. If it were just up to you, would you be a yes?"</b> If yes, book a short call with both of them before you hang up. If no, you just found the real objection.</p>'},
+ {q:'"No, it\'s not for me."',tag:'A gift, honestly',body:
+  '<p><b>No is great.</b> Thank them, mean it, and let them go warmly. They might come back in six months or send you three friends.</p>'+
+  '<p>Yes is great. No is great. The only thing you can\'t work with is indecision. And if you have to pull someone in, you\'ll be pulling them along the whole container.</p>'}
+];
+var objs=document.getElementById('objs');
+OBJ.forEach(function(o,i){var el=document.createElement('div');el.className='obj'+(i===0?' open':'');
+  el.innerHTML='<button class="shead" aria-expanded="'+(i===0)+'"><span class="qt">'+esc(o.q)+'<small>'+esc(o.tag)+'</small></span><span class="chev">▶</span></button><div class="obody">'+o.body+'</div>';
+  el.querySelector('.shead').addEventListener('click',function(){el.classList.toggle('open');this.setAttribute('aria-expanded',el.classList.contains('open'));});
+  objs.appendChild(el);});
+
+/* ---------- SCORECARD ---------- */
+var CHECKS=[
+ ['They named the pain in the first 2 minutes','Out loud, in their words.'],
+ ['They did about 80% of the talking','On a reading you\'ll talk more. On a sales call, you shouldn\'t.'],
+ ['I asked what they\'d already tried, and what was good about it',''],
+ ['I surfaced obstacles before the ask','Money, time, anyone else in the decision.'],
+ ['They painted the vision themselves',''],
+ ['I asked permission before I pitched',''],
+ ['I got a yes to "does that feel helpful?"',''],
+ ['I pre-closed: "if the investment made sense, you\'d be ready?"',''],
+ ['I said the price once, then shut up','No justifying, no discount, no rambling.'],
+ ['Payment and onboarding happened on the call','Zero links, zero emails after.']
+];
+var tasks=document.getElementById('tasks');
+CHECKS.forEach(function(c,i){var b=document.createElement('button');b.className='task';b.dataset.i=i;
+  b.innerHTML='<span class="cb"></span><span><span class="tt">'+esc(c[0])+'</span>'+(c[1]?'<span class="hint" style="display:block">'+esc(c[1])+'</span>':'')+'</span>';
+  b.addEventListener('click',function(){state.checks[i]=!state.checks[i];save();renderChecks();});tasks.appendChild(b);});
+function renderChecks(){
+  var n=0;tasks.querySelectorAll('.task').forEach(function(t,i){var on=!!state.checks[i];t.classList.toggle('done',on);t.setAttribute('aria-pressed',on);if(on)n++;});
+  document.getElementById('pct').textContent=n+'/10';document.getElementById('barfill').style.width=(n*10)+'%';
+  document.getElementById('pmsg').textContent=n===0?'Tick what you did on the call you just had.':n<5?'Look at what\'s unticked. That\'s your one thing to practice before the next call.':n<9?'Solid. Pick the one you missed and script it.':n===9?'One away. You know which one.':'That\'s a 10/10 call. Whatever the outcome, you did your job.';
+}
+document.querySelectorAll('[data-out]').forEach(function(b){b.addEventListener('click',function(){
+  var o=b.dataset.out;state.log.calls++;state.log[o]++;state.checks={};save();renderChecks();renderLog();
+  toast(o==='yes'?'Logged a yes ✓':o==='no'?'Logged a clean no ✓':'Logged a maybe. Book the decision.');
+  document.getElementById('score').scrollIntoView({block:'start'});
+});});
+function renderLog(){
+  var L=state.log,rate=L.calls?L.yes/L.calls:0;
+  document.getElementById('sCalls').textContent=L.calls;document.getElementById('sYes').textContent=L.yes;
+  document.getElementById('sRate').textContent=L.calls?Math.round(rate*100)+'%':'–';document.getElementById('sMaybe').textContent=L.maybe;
+  var p=priceNum(),m=document.getElementById('math'),note=document.getElementById('mnote'),mo=state.f.pay==='monthly';
+  if(L.calls&&p&&L.yes){var per=rate*p;
+    m.textContent='At '+Math.round(rate*100)+'% and '+money(p)+(mo?'/mo':'')+', every call is worth ~'+money(Math.round(per))+(mo?'/mo':'')+'. Ten more calls ≈ '+money(Math.round(per*10))+(mo?'/mo':'')+'.';
+    note.textContent='Want more revenue? You don\'t need a new funnel first. You need more conversations.';
+  }else if(L.calls){m.textContent='';note.textContent=p?'No yeses logged yet. Look at the scorecard: which box keeps staying empty?':'Add your price in "Build your ask" and this turns into what every call is worth.';}
+  else{m.textContent='';note.textContent='Log your first call and the math shows up here.';}
+  if(L.maybe>L.yes&&L.calls>=3){note.textContent='More maybes than yeses. A maybe held is a no that costs money. Go back to stop 3 and the "let me think about it" script.';}
+}
+var rT;document.getElementById('resetLog').addEventListener('click',function(){var b=this;
+  if(b.dataset.armed){clearTimeout(rT);delete b.dataset.armed;b.textContent='Reset my numbers';state.log={calls:0,yes:0,no:0,maybe:0};save();renderLog();toast('Numbers reset');return;}
+  b.dataset.armed='1';b.textContent='Tap again to reset to zero';rT=setTimeout(function(){delete b.dataset.armed;b.textContent='Reset my numbers';},4000);});
+
+/* ---------- NAV highlight ---------- */
+var navLinks=[].slice.call(document.querySelectorAll('.nav a'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){navLinks.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section.card').forEach(function(s){io.observe(s);});}
+
+/* ---------- INIT ---------- */
+load();
+document.querySelectorAll('[data-f]').forEach(function(inp){inp.value=state.f[inp.dataset.f]||'';});
+document.querySelectorAll('[data-seg]').forEach(function(seg){var v=state.f[seg.dataset.seg];seg.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v);});});
+placeCar(stnLen[0]);go(0);buildAsk();renderChecks();renderLog();setBest();
+</script>
+</body>
+</html>
